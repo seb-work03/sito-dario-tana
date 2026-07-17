@@ -1,0 +1,75 @@
+import type { CollectionConfig } from "payload";
+
+export const Leads: CollectionConfig = {
+  slug: "leads",
+  labels: { singular: "Lead", plural: "Lead" },
+  admin: {
+    group: "CRM",
+    useAsTitle: "name",
+    defaultColumns: ["name", "email", "type", "status", "createdAt"],
+  },
+  fields: [
+    { name: "name", type: "text", label: "Nome", required: true },
+    { name: "email", type: "email", label: "Email", required: true },
+    { name: "phone", type: "text", label: "Telefono" },
+    { name: "company", type: "text", label: "Azienda" },
+    { name: "role", type: "text", label: "Ruolo" },
+    {
+      name: "type",
+      type: "select",
+      label: "Tipo richiesta",
+      options: [
+        { label: "Consulenza", value: "consulenza" },
+        { label: "Formazione aziendale", value: "formazione" },
+        { label: "Docenza", value: "docenza" },
+        { label: "Corso / Workshop", value: "corso" },
+        { label: "Evento / Intervento", value: "evento" },
+        { label: "Collaborazione", value: "collaborazione" },
+        { label: "Altro", value: "altro" },
+      ],
+    },
+    { name: "message", type: "textarea", label: "Messaggio" },
+    { name: "organization", type: "text", label: "Organizzazione (per docenza)" },
+    { name: "eventDate", type: "text", label: "Data evento (per docenza)" },
+    { name: "eventLocation", type: "text", label: "Luogo (per docenza)" },
+    { name: "participants", type: "text", label: "N. partecipanti (per docenza)" },
+    { name: "budget", type: "text", label: "Budget indicativo" },
+    {
+      name: "source",
+      type: "text",
+      label: "Pagina di provenienza",
+    },
+    {
+      name: "utm",
+      type: "group",
+      label: "UTM",
+      fields: [
+        { name: "source", type: "text", label: "UTM Source" },
+        { name: "medium", type: "text", label: "UTM Medium" },
+        { name: "campaign", type: "text", label: "UTM Campaign" },
+      ],
+    },
+    {
+      name: "status",
+      type: "select",
+      label: "Stato",
+      defaultValue: "new",
+      options: [
+        { label: "Nuovo", value: "new" },
+        { label: "In valutazione", value: "reviewing" },
+        { label: "Contattato", value: "contacted" },
+        { label: "In trattativa", value: "negotiating" },
+        { label: "Acquisito", value: "won" },
+        { label: "Non proseguito", value: "lost" },
+      ],
+    },
+    { name: "notes", type: "textarea", label: "Note interne" },
+    {
+      name: "consent",
+      type: "checkbox",
+      label: "Consenso privacy",
+      required: true,
+    },
+  ],
+  timestamps: true,
+};

@@ -36,6 +36,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local backup before template import (not part of the site)
+/backup-pre-clone
+
+# local Claude Code settings overrides
+.claude/settings.local.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

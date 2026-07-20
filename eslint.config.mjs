@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Local pre-import backup, not part of the site
+    "backup-pre-clone/**",
   ]),
 ]);
 

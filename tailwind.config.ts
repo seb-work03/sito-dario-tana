@@ -9,71 +9,82 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: {
-          main: "#05080D",
-          secondary: "#08111A",
+        // Base dark palette — deeper than before, more editorial
+        ink: {
+          950: "#04070C",  // deepest bg
+          900: "#0A0F17",  // main bg
+          850: "#0F1620",  // secondary bg
+          800: "#141C28",  // surface
+          700: "#1B2530",  // hover surface
+          600: "#26313E",  // borders subtle
         },
-        surface: {
-          primary: "#0C1620",
-          secondary: "#101D29",
-          hover: "#142534",
+        // Accent — celeste of dariotana.it
+        celeste: {
+          50: "#EAF9FE",
+          100: "#C6EFFC",
+          200: "#9DE3F9",
+          300: "#79DDF7",
+          400: "#4CD1F5",
+          500: "#31C6F2",   // MAIN
+          600: "#1DA9D2",
+          700: "#0B91BC",
+          800: "#0A7597",
         },
-        text: {
-          primary: "#F4F8FB",
-          secondary: "#A8B5C2",
-          muted: "#71808D",
-        },
-        accent: {
-          primary: "#31C6F2",
-          light: "#79DDF7",
-          dark: "#0B91BC",
-        },
-        border: {
-          primary: "rgba(117, 220, 247, 0.18)",
-          neutral: "rgba(255, 255, 255, 0.10)",
+        // Content
+        paper: {
+          50: "#FBFCFD",   // pure white slightly warm
+          100: "#F4F7FA",
+          200: "#E5EAF0",
+          300: "#C9D2DC",
+          400: "#A8B5C2",
+          500: "#7F8B99",
+          600: "#5B6773",
         },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-fraunces)", "Georgia", "serif"],
+        display: ["var(--font-inter)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
       },
       fontSize: {
-        "display-xl": ["clamp(3rem, 6vw, 5.5rem)", { lineHeight: "1.05", letterSpacing: "-0.03em" }],
-        "display-lg": ["clamp(2.25rem, 4vw, 3.75rem)", { lineHeight: "1.1", letterSpacing: "-0.025em" }],
-        "display-md": ["clamp(1.75rem, 3vw, 2.75rem)", { lineHeight: "1.15", letterSpacing: "-0.02em" }],
-        "display-sm": ["clamp(1.375rem, 2vw, 1.875rem)", { lineHeight: "1.2", letterSpacing: "-0.015em" }],
+        // Adviest-scale display type — big, tight
+        "hero": ["clamp(3rem, 8vw, 6.5rem)", { lineHeight: "0.95", letterSpacing: "-0.035em", fontWeight: "500" }],
+        "display-xl": ["clamp(2.5rem, 6vw, 5rem)", { lineHeight: "1", letterSpacing: "-0.03em", fontWeight: "500" }],
+        "display-lg": ["clamp(2rem, 4.5vw, 3.75rem)", { lineHeight: "1.05", letterSpacing: "-0.025em", fontWeight: "500" }],
+        "display-md": ["clamp(1.625rem, 3vw, 2.5rem)", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "500" }],
+        "display-sm": ["clamp(1.25rem, 2vw, 1.5rem)", { lineHeight: "1.25", letterSpacing: "-0.015em", fontWeight: "500" }],
       },
       spacing: {
-        section: "clamp(5rem, 10vw, 9rem)",
-        container: "clamp(1.25rem, 5vw, 3rem)",
+        section: "clamp(4rem, 8vw, 7rem)",
+        "section-lg": "clamp(6rem, 12vw, 10rem)",
       },
       borderRadius: {
-        sm: "4px",
-        md: "8px",
-        lg: "12px",
-        xl: "16px",
-        "2xl": "24px",
+        sm: "8px",
+        DEFAULT: "12px",
+        md: "16px",
+        lg: "20px",
+        xl: "24px",
+        "2xl": "32px",
+        "3xl": "40px",
+      },
+      boxShadow: {
+        "soft": "0 2px 20px rgba(0, 0, 0, 0.4)",
+        "lift": "0 12px 40px rgba(0, 0, 0, 0.5)",
+        "celeste": "0 8px 40px rgba(49, 198, 242, 0.15)",
       },
       transitionTimingFunction: {
-        smooth: "cubic-bezier(0.25, 0.1, 0.25, 1)",
-        spring: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "smooth": "cubic-bezier(0.25, 0.1, 0.25, 1)",
         "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",
+        "adviest": "cubic-bezier(0.32, 0.72, 0, 1)",
       },
       animation: {
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "spin-slow": "spin 8s linear infinite",
-        "marquee": "marquee 30s linear infinite",
-        "marquee-reverse": "marquee-reverse 35s linear infinite",
+        "marquee": "marquee 40s linear infinite",
+        "marquee-slow": "marquee 60s linear infinite",
       },
       keyframes: {
         marquee: {
-          "0%": { transform: "translateX(0%)" },
+          "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
-        },
-        "marquee-reverse": {
-          "0%": { transform: "translateX(-50%)" },
-          "100%": { transform: "translateX(0%)" },
         },
       },
     },

@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, Geist_Mono } from "next/font/google";
+import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
-});
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  display: "swap",
-  axes: ["opsz", "SOFT", "WONK"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -28,30 +22,18 @@ export const metadata: Metadata = {
     template: "%s | Dario Tana",
   },
   description:
-    "Consulenza e formazione e-commerce per prendere decisioni migliori. Oltre 20 anni di esperienza nel commercio elettronico.",
-  keywords: ["consulente ecommerce", "formazione ecommerce", "docente ecommerce", "Dario Tana", "DT Ecommerce Consulting"],
+    "Consulenza e formazione e-commerce indipendenti per prendere decisioni migliori. Oltre 20 anni di esperienza diretta nel commercio elettronico.",
+  keywords: ["consulente ecommerce", "formazione ecommerce", "docente ecommerce", "Dario Tana"],
   authors: [{ name: "Dario Tana" }],
-  creator: "Dario Tana",
   openGraph: {
     type: "website",
     locale: "it_IT",
     url: "https://dariotana.it",
     siteName: "Dario Tana",
     title: "Dario Tana — Consulente e Docente E-commerce",
-    description:
-      "Consulenza e formazione e-commerce per prendere decisioni migliori. Oltre 20 anni di esperienza nel commercio elettronico.",
+    description: "Consulenza e formazione e-commerce indipendenti per prendere decisioni migliori.",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Dario Tana — Consulente e Docente E-commerce",
-    description:
-      "Consulenza e formazione e-commerce per prendere decisioni migliori.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
-  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -60,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="it"
-      className={`${inter.variable} ${fraunces.variable} ${geistMono.variable}`}
+      className={`${inter.variable} ${geistMono.variable}`}
       style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
     >
       <body>{children}</body>

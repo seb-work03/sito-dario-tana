@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { ImageIcon } from "lucide-react";
 
 interface MediaPlaceholderProps {
   ratio?: string;
@@ -6,6 +7,8 @@ interface MediaPlaceholderProps {
   description?: string;
   altPlaceholder?: string;
   className?: string;
+  variant?: "dark" | "light";
+  rounded?: string;
 }
 
 export function MediaPlaceholder({
@@ -14,33 +17,32 @@ export function MediaPlaceholder({
   description,
   altPlaceholder,
   className,
+  variant = "dark",
+  rounded = "rounded-2xl",
 }: MediaPlaceholderProps) {
   const [w, h] = ratio.split("/").map(Number);
   const paddingTop = h && w ? `${(h / w) * 100}%` : "56.25%";
 
+  const bg = variant === "dark" ? "bg-ink-800 border-ink-600" : "bg-paper-100 border-paper-200";
+  const textColor = variant === "dark" ? "text-paper-400" : "text-paper-500";
+
   return (
     <div
-      className={cn(
-        "relative w-full overflow-hidden rounded-lg bg-surface-secondary border border-border-neutral",
-        className
-      )}
+      className={cn("relative w-full overflow-hidden border", bg, rounded, className)}
       style={{ paddingTop }}
       role="img"
       aria-label={altPlaceholder || label}
     >
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4 text-center">
-        <div className="w-8 h-8 rounded border border-border-primary flex items-center justify-center">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" strokeWidth="1.2" className="text-text-muted" />
-            <circle cx="5.5" cy="6.5" r="1" fill="currentColor" className="text-text-muted" />
-            <path d="M1 10.5l4-3 3 2.5 2-1.5 4 3" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" className="text-text-muted" />
-          </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center">
+        <div className={cn("w-10 h-10 rounded-full border flex items-center justify-center", variant === "dark" ? "border-ink-600" : "border-paper-300")}>
+          <ImageIcon size={16} className={textColor} strokeWidth={1.5} />
         </div>
-        <p className="text-xs font-mono text-text-muted uppercase tracking-wider">{label}</p>
+        <p className={cn("text-xs font-mono uppercase tracking-[0.15em]", textColor)}>{label}</p>
         {description && (
-          <p className="text-xs text-text-muted/60 max-w-[200px]">{description}</p>
+          <p className={cn("text-xs max-w-[280px] leading-relaxed", variant === "dark" ? "text-paper-500" : "text-paper-500")}>
+            {description}
+          </p>
         )}
-        <p className="text-[10px] text-text-muted/40 font-mono">{ratio}</p>
       </div>
     </div>
   );

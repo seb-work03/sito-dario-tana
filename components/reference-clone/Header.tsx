@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 
 const navLinks = [
-  { label: "About Us", href: "#about-us" },
-  { label: "Services", href: "#service" },
-  { label: "Insights", href: "#insights" },
-  { label: "Testimonials", href: "#testimon" },
+  { label: "Chi sono", href: "#about-us" },
+  { label: "Servizi", href: "#service" },
+  { label: "Metodo", href: "#process" },
+  { label: "Testimonianze", href: "#testimon" },
 ];
 
 export function Header() {
@@ -28,8 +28,8 @@ export function Header() {
         style={{ height: 100, boxShadow: scrolled ? "0 1px 0 rgba(255,255,255,0.06)" : "none" }}
       >
         <div className="mx-auto h-full max-w-[1536px] px-5 flex items-center justify-between">
-          <a href="#" className="text-[24px] font-bold tracking-tight text-[#EDF2F7]">
-            Adviest
+          <a href="#" className="group text-[24px] font-semibold tracking-tight text-[#EDF2F7] transition-opacity hover:opacity-80">
+            Dario<span className="text-[#77C0CF] transition-transform duration-500 inline-block group-hover:translate-x-0.5">.</span>Tana
           </a>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -37,21 +37,22 @@ export function Header() {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-[16px] text-[#EDF2F7] hover:text-[#77C0CF] transition-colors duration-200"
+                className="relative text-[16px] text-[#EDF2F7] transition-colors duration-300 hover:text-[#77C0CF] group"
               >
                 {l.label}
+                <span className="absolute left-0 -bottom-1 h-px w-0 bg-[#77C0CF] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:w-full" />
               </a>
             ))}
           </nav>
 
           <a
             href="/contatti"
-            className="hidden md:inline-flex items-center gap-1 rounded-xl bg-[#77C0CF] pl-4 pr-1 py-1 text-[#0D1218] text-[15px] font-medium transition-colors duration-200 hover:bg-[#5BAAB9]"
+            className="group hidden md:inline-flex items-center gap-1 rounded-xl bg-[#77C0CF] pl-4 pr-1 py-1 text-[#0D1218] text-[15px] font-medium transition-all duration-300 hover:bg-[#5BAAB9] hover:pl-6"
             style={{ height: 60 }}
           >
-            <span className="px-1">Get Started</span>
-            <span className="flex items-center justify-center rounded-lg bg-[#0D1218] text-[#77C0CF] w-11 h-11">
-              <ArrowRight size={16} />
+            <span className="px-1">Parliamone</span>
+            <span className="flex items-center justify-center rounded-lg bg-[#0D1218] text-[#77C0CF] w-11 h-11 overflow-hidden">
+              <ArrowRight size={16} className="transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-rotate-45" />
             </span>
           </a>
 
@@ -92,7 +93,7 @@ export function Header() {
                 href="/contatti"
                 className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#77C0CF] text-[#0D1218] font-medium py-4"
               >
-                Get Started <ArrowRight size={16} />
+                Parliamone <ArrowRight size={16} />
               </a>
             </nav>
           </motion.div>

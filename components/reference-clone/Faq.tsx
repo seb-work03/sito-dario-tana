@@ -2,28 +2,32 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus } from "lucide-react";
+import { Plus, ArrowRight } from "lucide-react";
 
 const faqs = [
   {
-    q: "Do you work with institutional clients?",
-    a: "We partner with institutional organizations to deliver tailored solutions across multiple industries worldwide markets.",
+    q: "Come si svolge una consulenza tipo?",
+    a: "Parte da un primo confronto per capire il contesto. Poi si definisce l'attività — un audit, un affiancamento, una consulenza continuativa — con obiettivi chiari e tempi realistici. Ogni consulenza è personalizzata: non esistono format standard.",
   },
   {
-    q: "How long are advisory engagements?",
-    a: "[risposta non estratta dal riferimento — il click sull'accordion non è stato riproducibile in fase di analisi]",
+    q: "Quanto costa una consulenza?",
+    a: "Il costo dipende dal tipo di intervento, dalla durata e dalla profondità dell'analisi. Dopo il primo confronto invio una proposta scritta con perimetro, tempi e importo. Nessun preventivo prima di aver capito il contesto.",
   },
   {
-    q: "Is your advisory advice independent?",
-    a: "[risposta non estratta dal riferimento — il click sull'accordion non è stato riproducibile in fase di analisi]",
+    q: "Qual è la differenza tra la tua consulenza e DT E-commerce Consulting?",
+    a: "Come consulente indipendente offro analisi, strategia, formazione e affiancamento. DT E-commerce Consulting — di cui sono cofondatore con Tiziana Tana — è la struttura operativa che sviluppa e gestisce i progetti e-commerce. Due ruoli complementari con obiettivi diversi.",
   },
   {
-    q: "Do you offer ongoing advisory support?",
-    a: "[risposta non estratta dal riferimento — il click sull'accordion non è stato riproducibile in fase di analisi]",
+    q: "Lavori solo in italiano o anche all'estero?",
+    a: "L'attività principale è in italiano, in Italia. Per progetti internazionali valuto caso per caso in funzione della complessità linguistica e organizzativa richiesta.",
   },
   {
-    q: "How do we get started together?",
-    a: "[risposta non estratta dal riferimento — il click sull'accordion non è stato riproducibile in fase di analisi]",
+    q: "Puoi intervenire in aula o in azienda per formazione?",
+    a: "Sì. Faccio docenza in master, executive program, corsi aziendali e workshop verticali. Il format e la durata si adattano al pubblico e agli obiettivi formativi.",
+  },
+  {
+    q: "Come iniziamo a lavorare insieme?",
+    a: "Il modo più semplice è scrivermi attraverso il modulo contatti o via email. In uno o due giorni lavorativi rispondo per capire se e come posso essere utile, e propongo un primo confronto.",
   },
 ];
 
@@ -31,35 +35,78 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-[#0D1218] px-5 py-16 md:py-24">
-      <div className="mx-auto max-w-[1536px] grid md:grid-cols-[380px_1fr] gap-12 md:gap-20">
+    <section id="faq" className="bg-[#0D1218] px-5 py-16 md:py-28 border-t border-white/5">
+      <div className="mx-auto max-w-[1536px] grid md:grid-cols-[380px_1fr] gap-12 md:gap-24">
         <div className="md:sticky md:top-[130px] self-start">
-          <span className="font-mono text-sm tracking-widest text-[#77C0CF]/70">[ FAQ ]</span>
-          <h2 className="text-[#EDF2F7] font-medium text-[32px] md:text-[48px] leading-tight mt-4 mb-8">
-            Frequently Asked Questions
-          </h2>
-          <a
-            href="/contatti"
-            className="inline-flex items-center justify-center rounded-xl bg-[#77C0CF] text-[#0D1218] font-medium px-6 py-3 text-sm hover:bg-[#5BAAB9] transition-colors"
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="font-mono text-sm tracking-widest text-[#77C0CF]/70"
           >
-            Get Started
-          </a>
+            [ FAQ ]
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.9, ease: [0.19, 1, 0.22, 1] }}
+            className="text-[#EDF2F7] font-medium text-[32px] md:text-[48px] leading-[1.05] mt-4 mb-6 tracking-tight"
+          >
+            Domande frequenti.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, delay: 0.1 }}
+            className="text-[#94A9BE] text-sm md:text-base leading-relaxed mb-8 max-w-xs"
+          >
+            Non trovi la risposta che cerchi? Scrivimi direttamente: rispondo
+            personalmente in uno o due giorni lavorativi.
+          </motion.p>
+          <motion.a
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, delay: 0.2 }}
+            href="/contatti"
+            className="group inline-flex items-center gap-3 rounded-xl bg-[#77C0CF] text-[#0D1218] font-medium pl-5 pr-2 py-2 text-sm hover:bg-[#5BAAB9] transition-all duration-500 hover:pl-7"
+          >
+            Parliamone
+            <span className="flex items-center justify-center rounded-lg bg-[#0D1218] text-[#77C0CF] w-9 h-9 overflow-hidden">
+              <ArrowRight size={14} className="transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-rotate-45" />
+            </span>
+          </motion.a>
         </div>
 
         <div className="flex flex-col divide-y divide-white/8">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={f.q}>
+              <motion.div
+                key={f.q}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: i * 0.05 }}
+              >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full py-6 flex items-center justify-between gap-4 text-left"
+                  className="w-full py-6 md:py-7 flex items-start justify-between gap-4 text-left group"
                 >
-                  <span className="text-[#EDF2F7] text-lg md:text-xl">{f.q}</span>
+                  <span className="text-[#EDF2F7] text-lg md:text-xl font-medium leading-snug tracking-tight pr-4 transition-colors duration-300 group-hover:text-[#77C0CF]">
+                    {f.q}
+                  </span>
                   <motion.span
                     animate={{ rotate: isOpen ? 45 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className={`w-9 h-9 rounded-full border flex items-center justify-center shrink-0 transition-colors ${isOpen ? "bg-[#77C0CF] border-[#77C0CF] text-[#0D1218]" : "border-white/15 text-[#EDF2F7]"}`}
+                    transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+                    className={`w-9 h-9 rounded-full border flex items-center justify-center shrink-0 transition-colors duration-500 ${
+                      isOpen
+                        ? "bg-[#77C0CF] border-[#77C0CF] text-[#0D1218]"
+                        : "border-white/15 text-[#EDF2F7] group-hover:border-[#77C0CF]/40"
+                    }`}
                   >
                     <Plus size={16} />
                   </motion.span>
@@ -70,14 +117,16 @@ export function Faq() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="pb-6 text-[#94A9BE] italic">{f.a}</p>
+                      <p className="pb-6 pr-12 text-[#94A9BE] leading-relaxed">
+                        {f.a}
+                      </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             );
           })}
         </div>

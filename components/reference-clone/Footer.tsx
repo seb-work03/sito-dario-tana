@@ -1,71 +1,100 @@
-import { Send } from "lucide-react";
+"use client";
 
-function FacebookIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94Z" />
-    </svg>
-  );
-}
+import { Mail, Star } from "lucide-react";
+import { motion } from "framer-motion";
 
-function YoutubeIcon() {
+function LinkedinIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z" />
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.11 20.45H3.56V9h3.55v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z" />
     </svg>
   );
 }
 
 const columnA = [
-  { label: "Services", href: "#service" },
-  { label: "About", href: "#about-us" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "/contatti" },
+  { label: "Chi sono", href: "#about-us" },
+  { label: "Servizi", href: "#service" },
+  { label: "Metodo", href: "#process" },
+  { label: "Contatti", href: "/contatti" },
 ];
 
 const columnB = [
-  { label: "LinkedIn", href: "#" },
-  { label: "X (Twitter)", href: "#" },
-  { label: "Instagram", href: "#" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/dariotana", icon: <LinkedinIcon /> },
+  { label: "Email", href: "mailto:info@dariotana.it", icon: <Mail size={14} /> },
+  { label: "Google Reviews", href: "https://g.page/r/[LINK GOOGLE MY BUSINESS DA INSERIRE]", icon: <Star size={14} /> },
 ];
 
 export function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-[#17222F] px-5 pt-16 pb-8 overflow-hidden">
+    <footer className="bg-[#17222F] px-5 pt-20 pb-8 overflow-hidden border-t border-white/5">
       <div className="mx-auto max-w-[1536px]">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 mb-14">
-          <div>
-            <h2 className="text-[#EDF2F7] font-medium text-[28px] md:text-[44px] leading-[1.15] max-w-lg mb-8">
-              Professional Banking and Investment Adviest Services.
-            </h2>
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-14 mb-16">
+          <div className="max-w-2xl">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.9, ease: [0.19, 1, 0.22, 1] }}
+              className="text-[#EDF2F7] font-medium text-[28px] md:text-[48px] leading-[1.1] mb-8 tracking-tight text-balance"
+            >
+              Hai un progetto, un problema, o una decisione da prendere?
+            </motion.h2>
+            <motion.a
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              href="/contatti"
+              className="group inline-flex items-center gap-3 rounded-xl bg-[#77C0CF] text-[#0D1218] font-medium pl-5 pr-2 py-2 hover:bg-[#5BAAB9] transition-all duration-500 hover:pl-7 mb-10"
+            >
+              Parliamone
+              <span className="flex items-center justify-center rounded-lg bg-[#0D1218] text-[#77C0CF] w-11 h-11 overflow-hidden">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-rotate-45">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </span>
+            </motion.a>
+
             <div className="flex items-center gap-3">
-              <a href="#" aria-label="Facebook" className="w-11 h-11 rounded-full bg-white/8 hover:bg-[#77C0CF]/15 border border-white/10 flex items-center justify-center text-[#94A9BE] hover:text-[#77C0CF] transition-colors">
-                <FacebookIcon />
-              </a>
-              <a href="#" aria-label="Telegram" className="w-11 h-11 rounded-full bg-white/8 hover:bg-[#77C0CF]/15 border border-white/10 flex items-center justify-center text-[#94A9BE] hover:text-[#77C0CF] transition-colors">
-                <Send size={16} />
-              </a>
-              <a href="#" aria-label="YouTube" className="w-11 h-11 rounded-full bg-white/8 hover:bg-[#77C0CF]/15 border border-white/10 flex items-center justify-center text-[#94A9BE] hover:text-[#77C0CF] transition-colors">
-                <YoutubeIcon />
-              </a>
+              {columnB.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target={s.href.startsWith("http") ? "_blank" : undefined}
+                  rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  aria-label={s.label}
+                  className="w-11 h-11 rounded-full bg-white/5 hover:bg-[#77C0CF]/15 border border-white/10 hover:border-[#77C0CF]/40 flex items-center justify-center text-[#94A9BE] hover:text-[#77C0CF] transition-all duration-300"
+                >
+                  {s.icon}
+                </a>
+              ))}
             </div>
           </div>
 
           <div className="flex gap-16 shrink-0">
             <ul className="flex flex-col gap-3">
+              <li className="font-mono text-xs uppercase tracking-[0.15em] text-[#4F6577] mb-2">Menu</li>
               {columnA.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} className="text-[#C1CEDF] hover:text-[#77C0CF] transition-colors">
+                  <a href={l.href} className="text-[#C1CEDF] hover:text-[#77C0CF] transition-colors duration-300 text-sm">
                     {l.label}
                   </a>
                 </li>
               ))}
             </ul>
             <ul className="flex flex-col gap-3">
+              <li className="font-mono text-xs uppercase tracking-[0.15em] text-[#4F6577] mb-2">Contatti</li>
               {columnB.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} className="text-[#C1CEDF] hover:text-[#77C0CF] transition-colors inline-flex items-center gap-1">
-                    {l.label} <span aria-hidden>↗</span>
+                  <a
+                    href={l.href}
+                    target={l.href.startsWith("http") ? "_blank" : undefined}
+                    rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="text-[#C1CEDF] hover:text-[#77C0CF] transition-colors duration-300 inline-flex items-center gap-1.5 text-sm"
+                  >
+                    {l.label} <span aria-hidden className="text-[#4F6577]">↗</span>
                   </a>
                 </li>
               ))}
@@ -73,20 +102,29 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/8 pt-10 mb-6">
-          <p
-            className="text-[#EDF2F7]/10 font-bold leading-[0.9] whitespace-nowrap select-none"
-            style={{ fontSize: "clamp(3rem, 13vw, 9rem)" }}
+        {/* Giant DARIO.TANA — animated on scroll into view */}
+        <div className="border-t border-white/8 pt-12 mb-6 overflow-hidden">
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
+            className="text-[#EDF2F7] font-medium leading-[0.85] tracking-[-0.04em] whitespace-nowrap select-none"
+            style={{ fontSize: "clamp(3.5rem, 15vw, 15rem)" }}
             aria-hidden="true"
           >
-            ADVISORY
-          </p>
+            DARIO<span className="text-[#77C0CF]">.</span>TANA
+          </motion.p>
         </div>
 
-        <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[#4F6577] text-sm">
-          <span>contact@advisory.com</span>
-          <span>© 2025 Adviest</span>
-          <span>Global Adviest Solutions</span>
+        <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[#4F6577] text-xs font-mono">
+          <span>© {year} Dario Tana &nbsp;·&nbsp; P.IVA [DA INSERIRE]</span>
+          <span>Cofondatore DT E-commerce Consulting</span>
+          <div className="flex items-center gap-6">
+            <a href="/privacy" className="hover:text-[#94A9BE] transition-colors">Privacy</a>
+            <a href="/cookie" className="hover:text-[#94A9BE] transition-colors">Cookie</a>
+            <a href="/note-legali" className="hover:text-[#94A9BE] transition-colors">Note legali</a>
+          </div>
         </div>
       </div>
     </footer>

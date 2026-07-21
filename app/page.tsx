@@ -12,28 +12,34 @@ import { Insights } from "@/components/reference-clone/Insights";
 import { Faq } from "@/components/reference-clone/Faq";
 import { Footer } from "@/components/reference-clone/Footer";
 
-// TEMPORANEO: questa homepage è una ricostruzione fedele di https://adviest.framer.ai/
-// (struttura, testi e immagini del riferimento) usata come base di partenza prima
-// della personalizzazione per Dario Tana. Non indicizzare.
+// Nota: contenuti ancora in fase di verifica — testimonianze, foto ed enti
+// da confermare prima della pubblicazione definitiva. Robots: noindex fino
+// a validazione dei testi con Dario.
 export const metadata: Metadata = {
-  title: "Prototipo di riferimento (temporaneo)",
-  description: "Ricostruzione temporanea di un sito di riferimento, non ancora personalizzata.",
+  title: "Dario Tana — Consulente e docente e-commerce",
+  description:
+    "Consulenza e formazione e-commerce indipendenti. Aiuto aziende, imprenditori e responsabili e-commerce a prendere decisioni più consapevoli. Oltre vent'anni di esperienza diretta.",
   robots: { index: false, follow: false },
 };
 
-export default function ReferenceCloneHomePage() {
+export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#0D1218] text-[#EDF2F7]" style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+    <div
+      className="min-h-screen bg-[#0D1218] text-[#EDF2F7] antialiased"
+      style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
+    >
       <Header />
-      <Hero />
-      <TrustBar />
-      <About />
-      <Services />
-      <Process />
-      <Experience />
-      <Testimonials />
-      <Insights />
-      <Faq />
+      <main>
+        <Hero />
+        <TrustBar />
+        <About />
+        <Services />
+        <Process />
+        <Experience />
+        <Testimonials />
+        <Insights />
+        <Faq />
+      </main>
       <Footer />
     </div>
   );

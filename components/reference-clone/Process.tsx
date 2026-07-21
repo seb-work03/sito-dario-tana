@@ -1,61 +1,117 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const steps = [
   {
     number: "01",
-    title: "Assessment",
-    description: "We begin by understanding client objectives, financial position, and institutional requirements.",
+    title: "Ascolto",
+    description:
+      "Prima capire, poi proporre. Ricostruisco insieme al cliente il contesto: obiettivi, vincoli, dati disponibili, punti dolenti.",
   },
   {
     number: "02",
-    title: "Strategy",
-    description: "We develop tailored banking and investment strategies aligned with risk tolerance and long-term goals.",
+    title: "Analisi",
+    description:
+      "Metto ordine tra le informazioni. Identifico le domande importanti, escludo il rumore, evidenzio ciò che serve davvero decidere.",
   },
   {
     number: "03",
-    title: "Execution",
-    description: "Strategies are implemented with precision, compliance, and ongoing professional oversight.",
+    title: "Priorità",
+    description:
+      "Definisco insieme al cliente cosa affrontare per primo, con quali risorse e con che criteri di verifica.",
+  },
+  {
+    number: "04",
+    title: "Azione",
+    description:
+      "Restituisco un piano operativo comprensibile, con passaggi realistici. Se serve, resto a disposizione durante l'esecuzione.",
   },
 ];
 
 export function Process() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(containerRef, { once: true, amount: 0.2 });
+
   return (
-    <section className="bg-[#0D1218] px-5 py-16 md:py-24">
+    <section id="process" className="bg-[#0D1218] px-5 py-16 md:py-28 border-t border-white/5">
       <div className="mx-auto max-w-[1536px]">
-        <span className="font-mono text-sm tracking-widest text-[#77C0CF]/70">[ OUR PROCESS ]</span>
+        <motion.span
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-mono text-sm tracking-widest text-[#77C0CF]/70"
+        >
+          [ IL METODO ]
+        </motion.span>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mt-4 mb-16">
-          <h2 className="text-[#EDF2F7] font-medium text-[32px] md:text-[48px] leading-tight max-w-lg">
-            Our Professional Advisory Approach
-          </h2>
-          <p className="text-[#94A9BE] max-w-sm">
-            Our process is structured, disciplined, and designed to support
-            informed banking and investment decisions.
-          </p>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.9, ease: [0.19, 1, 0.22, 1] }}
+            className="text-[#EDF2F7] font-medium text-[32px] md:text-[52px] leading-[1.05] max-w-2xl tracking-tight"
+          >
+            Un processo lineare, ma non rigido.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.9, delay: 0.15 }}
+            className="text-[#94A9BE] max-w-sm md:text-right leading-relaxed"
+          >
+            Ogni progetto è diverso. Il metodo rimane, i tempi e la profondità
+            si adattano al contesto.
+          </motion.p>
         </div>
 
-        <div className="hidden md:grid md:grid-cols-3 gap-6 relative">
-          {steps.map((s, i) => (
-            <motion.div
-              key={s.number}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, delay: i * 0.15, ease: [0.19, 1, 0.22, 1] }}
-              whileHover={{ y: -8 }}
-              className="bg-[#17222F] border border-[#253444] rounded-2xl p-8"
-              style={{ marginTop: i % 2 === 1 ? 48 : 0 }}
-            >
-              <div className="inline-flex items-center justify-center bg-[#77C0CF] rounded-md w-11 h-11 mb-8">
-                <span className="text-[#0D1218] text-sm font-semibold">{s.number}</span>
-              </div>
-              <h3 className="text-[#EDF2F7] text-2xl md:text-3xl font-medium mb-3">{s.title}</h3>
-              <p className="text-[#94A9BE] text-sm leading-relaxed">{s.description}</p>
-            </motion.div>
-          ))}
+        {/* Desktop grid with connecting SVG line */}
+        <div ref={containerRef} className="relative hidden md:block">
+          {/* Animated connector */}
+          <svg
+            className="absolute inset-x-0 top-16 h-24 w-full pointer-events-none"
+            viewBox="0 0 1000 100"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <motion.path
+              d="M 60 50 Q 250 20 480 50 T 940 50"
+              fill="none"
+              stroke="#77C0CF"
+              strokeWidth="1"
+              strokeDasharray="4 6"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={inView ? { pathLength: 1, opacity: 0.5 } : {}}
+              transition={{ duration: 2.4, ease: [0.19, 1, 0.22, 1], delay: 0.4 }}
+            />
+          </svg>
+
+          <div className="grid grid-cols-4 gap-6 relative">
+            {steps.map((s, i) => (
+              <motion.div
+                key={s.number}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: i * 0.15, ease: [0.19, 1, 0.22, 1] }}
+                whileHover={{ y: -8 }}
+                className="group bg-[#17222F] border border-[#253444] hover:border-[#77C0CF]/40 rounded-2xl p-7 transition-colors duration-500 relative"
+                style={{ marginTop: i % 2 === 1 ? 40 : 0 }}
+              >
+                <div className="inline-flex items-center justify-center bg-[#77C0CF] rounded-lg w-10 h-10 mb-7 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <span className="text-[#0D1218] text-sm font-semibold tabular-nums">{s.number}</span>
+                </div>
+                <h3 className="text-[#EDF2F7] text-2xl font-medium mb-3 tracking-tight">{s.title}</h3>
+                <p className="text-[#94A9BE] text-sm leading-relaxed">{s.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
+        {/* Mobile stack */}
         <div className="md:hidden flex flex-col gap-4">
           {steps.map((s, i) => (
             <motion.div
@@ -63,13 +119,13 @@ export function Process() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.7, delay: i * 0.1, ease: [0.19, 1, 0.22, 1] }}
               className="bg-[#17222F] border border-[#253444] rounded-2xl p-6"
             >
-              <div className="inline-flex items-center justify-center bg-[#77C0CF] rounded-md w-9 h-9 mb-5">
+              <div className="inline-flex items-center justify-center bg-[#77C0CF] rounded-lg w-9 h-9 mb-5">
                 <span className="text-[#0D1218] text-xs font-semibold">{s.number}</span>
               </div>
-              <h3 className="text-[#EDF2F7] text-xl font-medium mb-2">{s.title}</h3>
+              <h3 className="text-[#EDF2F7] text-xl font-medium mb-2 tracking-tight">{s.title}</h3>
               <p className="text-[#94A9BE] text-sm leading-relaxed">{s.description}</p>
             </motion.div>
           ))}

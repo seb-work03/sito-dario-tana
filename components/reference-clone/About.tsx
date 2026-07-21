@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Star } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { AnimatedLabel } from "./AnimatedLabel";
 
 function AnimatedNumber({ value, suffix = "", duration = 1.6 }: { value: number; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -28,17 +29,9 @@ function AnimatedNumber({ value, suffix = "", duration = 1.6 }: { value: number;
 export function About() {
   return (
     <section id="about-us" className="bg-[#0D1218] px-5 py-16 md:py-28">
-      <div className="mx-auto max-w-[1536px]">
+      <div className="mx-auto max-w-[1240px]">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="font-mono text-sm tracking-widest text-[#77C0CF]/70"
-          >
-            [ CHI SONO ]
-          </motion.span>
+          <AnimatedLabel>CHI SONO</AnimatedLabel>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { AnimatedLabel } from "./AnimatedLabel";
 
 const engagements = [
   {
@@ -44,16 +45,8 @@ const engagements = [
 export function Experience() {
   return (
     <section className="bg-[#121A24] px-5 py-16 md:py-28 border-t border-white/5">
-      <div className="mx-auto max-w-[1536px]">
-        <motion.span
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="font-mono text-sm tracking-widest text-[#77C0CF]/70"
-        >
-          [ AMBITI DI LAVORO ]
-        </motion.span>
+      <div className="mx-auto max-w-[1240px]">
+        <AnimatedLabel>AMBITI DI LAVORO</AnimatedLabel>
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -110,15 +103,7 @@ export function Experience() {
         </div>
 
         <div className="mt-24 md:mt-32 border-t border-white/8 pt-14">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="font-mono text-sm tracking-widest text-[#77C0CF]/70"
-          >
-            [ NOTA ]
-          </motion.span>
+          <AnimatedLabel>NOTA</AnimatedLabel>
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

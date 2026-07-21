@@ -9,36 +9,36 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Base dark palette — deeper than before, more editorial
+        // Dark backgrounds — slate-blue tinted, not pure black
         ink: {
-          950: "#04070C",  // deepest bg
-          900: "#0A0F17",  // main bg
-          850: "#0F1620",  // secondary bg
-          800: "#141C28",  // surface
-          700: "#1B2530",  // hover surface
-          600: "#26313E",  // borders subtle
+          950: "#080C12",  // deepest bg
+          900: "#0D1218",  // main bg
+          850: "#121A24",  // secondary surfaces
+          800: "#17222F",  // cards, panels
+          700: "#1D2B3A",  // hover states
+          600: "#253444",  // borders, dividers
         },
-        // Accent — celeste of dariotana.it
+        // Accent — teal-steel #77C0CF
         celeste: {
-          50: "#EAF9FE",
-          100: "#C6EFFC",
-          200: "#9DE3F9",
-          300: "#79DDF7",
-          400: "#4CD1F5",
-          500: "#31C6F2",   // MAIN
-          600: "#1DA9D2",
-          700: "#0B91BC",
-          800: "#0A7597",
+          50:  "#EEF9FB",
+          100: "#D4EFF5",
+          200: "#AEDCE8",
+          300: "#8DCEDD",
+          400: "#82C6D4",
+          500: "#77C0CF",  // MAIN
+          600: "#5BAAB9",
+          700: "#3F90A4",
+          800: "#2C7384",
         },
-        // Content
+        // Text — cool off-white, never pure white
         paper: {
-          50: "#FBFCFD",   // pure white slightly warm
-          100: "#F4F7FA",
-          200: "#E5EAF0",
-          300: "#C9D2DC",
-          400: "#A8B5C2",
-          500: "#7F8B99",
-          600: "#5B6773",
+          50:  "#EDF2F7",  // headlines, primary text
+          100: "#DDE5EF",  // slightly dimmed
+          200: "#C1CEDF",  // secondary headings
+          300: "#94A9BE",  // body secondary
+          400: "#6A84A0",  // muted labels
+          500: "#4F6577",  // very muted
+          600: "#384D5E",  // barely visible
         },
       },
       fontFamily: {
@@ -70,7 +70,7 @@ const config: Config = {
       boxShadow: {
         "soft": "0 2px 20px rgba(0, 0, 0, 0.4)",
         "lift": "0 12px 40px rgba(0, 0, 0, 0.5)",
-        "celeste": "0 8px 40px rgba(49, 198, 242, 0.15)",
+        "celeste": "0 8px 40px rgba(119, 192, 207, 0.18)",
       },
       transitionTimingFunction: {
         "smooth": "cubic-bezier(0.25, 0.1, 0.25, 1)",

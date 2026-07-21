@@ -6,11 +6,11 @@ import { Star } from "lucide-react";
 
 export function About() {
   return (
-    <section id="about-us" className="bg-[#F9F9F9] px-5 py-16 md:py-24">
+    <section id="about-us" className="bg-[#0D1218] px-5 py-16 md:py-24">
       <div className="mx-auto max-w-[1536px]">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-          <span className="font-mono text-sm tracking-widest text-[#0D0D0D]/60">[ ABOUT US ]</span>
-          <p className="text-[#0D0D0D] text-lg md:text-xl max-w-md md:text-right">
+          <span className="font-mono text-sm tracking-widest text-[#77C0CF]/70">[ ABOUT US ]</span>
+          <p className="text-[#EDF2F7] text-lg md:text-xl max-w-md md:text-right">
             We provide independent banking and investment advisory focused on
             clarity, analysis, risk management, and outcomes.
           </p>
@@ -39,9 +39,9 @@ export function About() {
               </div>
             </div>
             <div className="flex items-center gap-2 mt-4">
-              <Star size={18} className="fill-[#5372B0] text-[#5372B0]" />
-              <span className="text-[#0D0D0D] font-medium">5.0</span>
-              <span className="text-[#0D0D0D]/60 text-sm">Client Satisfaction</span>
+              <Star size={18} className="fill-[#77C0CF] text-[#77C0CF]" />
+              <span className="text-[#EDF2F7] font-medium">5.0</span>
+              <span className="text-[#94A9BE] text-sm">Client Satisfaction</span>
             </div>
           </motion.div>
 
@@ -75,9 +75,9 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="rounded-3xl border border-black/10 bg-white p-4 flex flex-col justify-between gap-6"
+            className="rounded-3xl border border-white/8 bg-[#17222F] p-4 flex flex-col justify-between gap-6"
           >
-            <div className="relative rounded-xl overflow-hidden bg-white">
+            <div className="relative rounded-xl overflow-hidden bg-[#0D1218]">
               <Image
                 src="/reference-assets/adviest/NvZiTw96HWXcrbBJEfgmR444VR4.jpg"
                 alt="Performance reports"
@@ -98,7 +98,7 @@ export function About() {
               </div>
               <a
                 href="/contatti"
-                className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[#5372B0] text-white py-3 text-sm hover:bg-[#46609a] transition-colors"
+                className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[#77C0CF] text-[#0D1218] py-3 text-sm font-medium hover:bg-[#5BAAB9] transition-colors"
               >
                 Get Started
               </a>

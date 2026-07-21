@@ -24,11 +24,11 @@ export function Header() {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-50 bg-[#F9F9F9] transition-shadow duration-300"
-        style={{ height: 100, boxShadow: scrolled ? "0 1px 0 rgba(0,0,0,0.08)" : "none" }}
+        className="fixed top-0 left-0 right-0 z-50 bg-[#0D1218] transition-shadow duration-300"
+        style={{ height: 100, boxShadow: scrolled ? "0 1px 0 rgba(255,255,255,0.06)" : "none" }}
       >
         <div className="mx-auto h-full max-w-[1536px] px-5 flex items-center justify-between">
-          <a href="#" className="text-[24px] font-bold tracking-tight text-[#0D0D0D]">
+          <a href="#" className="text-[24px] font-bold tracking-tight text-[#EDF2F7]">
             Adviest
           </a>
 
@@ -37,7 +37,7 @@ export function Header() {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-[16px] text-[#0D0D0D] hover:text-[#5372B0] transition-colors duration-200"
+                className="text-[16px] text-[#EDF2F7] hover:text-[#77C0CF] transition-colors duration-200"
               >
                 {l.label}
               </a>
@@ -46,17 +46,17 @@ export function Header() {
 
           <a
             href="/contatti"
-            className="hidden md:inline-flex items-center gap-1 rounded-xl bg-[#5372B0] pl-4 pr-1 py-1 text-white text-[15px] transition-colors duration-200 hover:bg-[#46609a]"
+            className="hidden md:inline-flex items-center gap-1 rounded-xl bg-[#77C0CF] pl-4 pr-1 py-1 text-[#0D1218] text-[15px] font-medium transition-colors duration-200 hover:bg-[#5BAAB9]"
             style={{ height: 60 }}
           >
             <span className="px-1">Get Started</span>
-            <span className="flex items-center justify-center rounded-lg bg-white text-[#0D0D0D] w-11 h-11">
+            <span className="flex items-center justify-center rounded-lg bg-[#0D1218] text-[#77C0CF] w-11 h-11">
               <ArrowRight size={16} />
             </span>
           </a>
 
           <button
-            className="lg:hidden p-2 text-[#0D0D0D]"
+            className="lg:hidden p-2 text-[#EDF2F7]"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
@@ -72,7 +72,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 bg-[#F9F9F9] lg:hidden pt-[100px]"
+            className="fixed inset-0 z-40 bg-[#0D1218] lg:hidden pt-[100px]"
           >
             <nav className="flex flex-col px-6 py-8 gap-2">
               {navLinks.map((l, i) => (
@@ -83,14 +83,14 @@ export function Header() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  className="text-2xl font-medium text-[#0D0D0D] py-3 border-b border-black/10"
+                  className="text-2xl font-medium text-[#EDF2F7] py-3 border-b border-white/10"
                 >
                   {l.label}
                 </motion.a>
               ))}
               <a
                 href="/contatti"
-                className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#5372B0] text-white py-4"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#77C0CF] text-[#0D1218] font-medium py-4"
               >
                 Get Started <ArrowRight size={16} />
               </a>

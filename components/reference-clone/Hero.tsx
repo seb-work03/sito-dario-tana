@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="relative bg-[#F9F9F9] pt-[110px] pb-6 px-5">
+    <section className="relative bg-[#0D1218] pt-[110px] pb-6 px-5">
       <div className="mx-auto max-w-[1536px] relative">
         <h1
-          className="relative z-0 text-center font-bold text-[#0D0D0D] whitespace-nowrap select-none overflow-hidden mb-[10%]"
+          className="relative z-0 text-center font-bold text-[#EDF2F7] whitespace-nowrap select-none overflow-hidden mb-[10%]"
           style={{
             fontSize: "clamp(2.75rem, 12.8vw, 12.25rem)",
             lineHeight: 1.2,
@@ -32,7 +32,7 @@ export function Hero() {
           transition={{ duration: 0.9, ease: [0.19, 1, 0.22, 1] }}
           className="relative z-10 -mt-6 sm:-mt-16 md:-mt-24 lg:-mt-32 rounded-[40px] overflow-hidden"
           style={{
-            background: "linear-gradient(256deg, rgba(83, 114, 176, 0.7) 10%, rgb(83, 114, 176) 88%)",
+            background: "linear-gradient(256deg, rgba(44, 115, 132, 0.72) 10%, rgb(21, 74, 88) 88%)",
           }}
         >
           <div className="grid grid-cols-[1fr_auto_1fr] items-end md:items-center gap-2 md:gap-4 min-h-[clamp(320px,55vw,521px)] px-5 sm:px-6 md:px-10 py-6 md:py-0">
@@ -43,7 +43,7 @@ export function Hero() {
             {/* invisible spacer reserving room for the overflowing photo — width must match the photo below exactly */}
             <div className="w-[clamp(200px,34vw,410px)] shrink-0" aria-hidden="true" />
 
-            <p className="hidden md:block text-[#DEDEDE] text-[15px] md:text-[18px] leading-relaxed max-w-[320px] justify-self-end text-right">
+            <p className="hidden md:block text-[#C1CEDF] text-[15px] md:text-[18px] leading-relaxed max-w-[320px] justify-self-end text-right">
               We provide independent banking and investment advisory focused on
               clarity, analysis, risk management, and outcomes.
             </p>

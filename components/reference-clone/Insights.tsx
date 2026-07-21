@@ -15,19 +15,19 @@ export function Insights() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="insights" className="bg-[#F9F9F9] px-5 py-16 md:py-24">
+    <section id="insights" className="bg-[#0D1218] px-5 py-16 md:py-24">
       <div className="mx-auto max-w-[1536px]">
-        <span className="font-mono text-sm tracking-widest text-[#0D0D0D]/60">[ INSIGHTS ]</span>
-        <h2 className="text-[#0D0D0D] font-medium text-[32px] md:text-[48px] leading-tight max-w-xl mt-4 mb-4">
+        <span className="font-mono text-sm tracking-widest text-[#77C0CF]/70">[ INSIGHTS ]</span>
+        <h2 className="text-[#EDF2F7] font-medium text-[32px] md:text-[48px] leading-tight max-w-xl mt-4 mb-4">
           Data-Driven Financial Intelligence
         </h2>
-        <p className="text-[#0D0D0D]/70 max-w-lg mb-8">
+        <p className="text-[#94A9BE] max-w-lg mb-8">
           We leverage data and analytics to support informed banking and
           investment decisions.
         </p>
         <a
           href="/contatti"
-          className="inline-flex items-center justify-center rounded-xl bg-[#5372B0] text-white px-6 py-3 text-sm mb-14 hover:bg-[#46609a] transition-colors"
+          className="inline-flex items-center justify-center rounded-xl bg-[#77C0CF] text-[#0D1218] font-medium px-6 py-3 text-sm mb-14 hover:bg-[#5BAAB9] transition-colors"
         >
           Get Started
         </a>
@@ -40,7 +40,7 @@ export function Insights() {
                 onClick={() => setActive(i)}
                 className={cn(
                   "flex-1 md:flex-none text-left px-6 py-6 rounded-xl text-lg md:text-xl font-medium transition-colors duration-300",
-                  active === i ? "bg-[#5372B0] text-white" : i === 0 ? "bg-black/80 text-white" : "bg-black/40 text-white"
+                  active === i ? "bg-[#77C0CF] text-[#0D1218]" : i === 0 ? "bg-[#17222F] text-[#EDF2F7]" : "bg-[#121A24] text-[#94A9BE]"
                 )}
               >
                 {t.label}

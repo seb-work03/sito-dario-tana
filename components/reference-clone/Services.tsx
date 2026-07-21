@@ -29,21 +29,21 @@ const services = [
 
 export function Services() {
   return (
-    <section id="service" className="bg-[#F9F9F9] px-5 py-16 md:py-24">
+    <section id="service" className="bg-[#0D1218] px-5 py-16 md:py-24">
       <div className="mx-auto max-w-[1536px]">
-        <span className="font-mono text-sm tracking-widest text-[#0D0D0D]/60">[ OUR SERVICES ]</span>
+        <span className="font-mono text-sm tracking-widest text-[#77C0CF]/70">[ OUR SERVICES ]</span>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mt-4 mb-14">
-          <h2 className="text-[#0D0D0D] font-medium text-[32px] md:text-[48px] leading-tight max-w-lg">
+          <h2 className="text-[#EDF2F7] font-medium text-[32px] md:text-[48px] leading-tight max-w-lg">
             Discover Our Advisory Services
           </h2>
-          <p className="text-[#0D0D0D]/70 max-w-sm">
+          <p className="text-[#94A9BE] max-w-sm">
             Serving institutional and corporate clients with disciplined banking
             and investment advisory services.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
-          <div className="relative md:sticky md:top-[130px] rounded-3xl overflow-hidden aspect-[4/3] bg-black/5">
+          <div className="relative md:sticky md:top-[130px] rounded-3xl overflow-hidden aspect-[4/3] bg-[#17222F]">
             <Image
               src="/reference-assets/adviest/orECDk1yHAceniWXq7yKvfvv7Y.jpg"
               alt="Consulente al lavoro"
@@ -53,7 +53,7 @@ export function Services() {
             />
           </div>
 
-          <div className="flex flex-col divide-y divide-black/10">
+          <div className="flex flex-col divide-y divide-white/8">
             {services.map((s, i) => (
               <motion.div
                 key={s.number}
@@ -63,10 +63,10 @@ export function Services() {
                 transition={{ duration: 0.6, delay: i * 0.08 }}
                 className="py-8 first:pt-0 flex gap-6"
               >
-                <span className="font-mono text-sm text-[#0D0D0D]/50 shrink-0 pt-1">{s.number}</span>
+                <span className="font-mono text-sm text-[#77C0CF]/60 shrink-0 pt-1">{s.number}</span>
                 <div>
-                  <h3 className="text-[#0D0D0D] text-2xl md:text-3xl font-medium mb-2">{s.title}</h3>
-                  <p className="text-[#0D0D0D]/70">{s.description}</p>
+                  <h3 className="text-[#EDF2F7] text-2xl md:text-3xl font-medium mb-2">{s.title}</h3>
+                  <p className="text-[#94A9BE]">{s.description}</p>
                 </div>
               </motion.div>
             ))}

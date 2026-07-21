@@ -31,21 +31,21 @@ const columnB = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#5372B0] px-5 pt-16 pb-8 overflow-hidden">
+    <footer className="bg-[#17222F] px-5 pt-16 pb-8 overflow-hidden">
       <div className="mx-auto max-w-[1536px]">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 mb-14">
           <div>
-            <h2 className="text-white font-medium text-[28px] md:text-[44px] leading-[1.15] max-w-lg mb-8">
+            <h2 className="text-[#EDF2F7] font-medium text-[28px] md:text-[44px] leading-[1.15] max-w-lg mb-8">
               Professional Banking and Investment Adviest Services.
             </h2>
             <div className="flex items-center gap-3">
-              <a href="#" aria-label="Facebook" className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-colors">
+              <a href="#" aria-label="Facebook" className="w-11 h-11 rounded-full bg-white/8 hover:bg-[#77C0CF]/15 border border-white/10 flex items-center justify-center text-[#94A9BE] hover:text-[#77C0CF] transition-colors">
                 <FacebookIcon />
               </a>
-              <a href="#" aria-label="Telegram" className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-colors">
+              <a href="#" aria-label="Telegram" className="w-11 h-11 rounded-full bg-white/8 hover:bg-[#77C0CF]/15 border border-white/10 flex items-center justify-center text-[#94A9BE] hover:text-[#77C0CF] transition-colors">
                 <Send size={16} />
               </a>
-              <a href="#" aria-label="YouTube" className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-colors">
+              <a href="#" aria-label="YouTube" className="w-11 h-11 rounded-full bg-white/8 hover:bg-[#77C0CF]/15 border border-white/10 flex items-center justify-center text-[#94A9BE] hover:text-[#77C0CF] transition-colors">
                 <YoutubeIcon />
               </a>
             </div>
@@ -55,7 +55,7 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               {columnA.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} className="text-white/90 hover:text-white transition-colors">
+                  <a href={l.href} className="text-[#C1CEDF] hover:text-[#77C0CF] transition-colors">
                     {l.label}
                   </a>
                 </li>
@@ -64,7 +64,7 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               {columnB.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} className="text-white/90 hover:text-white transition-colors inline-flex items-center gap-1">
+                  <a href={l.href} className="text-[#C1CEDF] hover:text-[#77C0CF] transition-colors inline-flex items-center gap-1">
                     {l.label} <span aria-hidden>↗</span>
                   </a>
                 </li>
@@ -73,9 +73,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-10 mb-6">
+        <div className="border-t border-white/8 pt-10 mb-6">
           <p
-            className="text-white/25 font-bold leading-[0.9] whitespace-nowrap select-none"
+            className="text-[#EDF2F7]/10 font-bold leading-[0.9] whitespace-nowrap select-none"
             style={{ fontSize: "clamp(3rem, 13vw, 9rem)" }}
             aria-hidden="true"
           >
@@ -83,7 +83,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="border-t border-white/20 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-white/70 text-sm">
+        <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[#4F6577] text-sm">
           <span>contact@advisory.com</span>
           <span>© 2025 Adviest</span>
           <span>Global Adviest Solutions</span>

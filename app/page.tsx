@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function ReferenceCloneHomePage() {
   return (
-    <div className="min-h-screen bg-[#F9F9F9] text-[#0D0D0D]" style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+    <div className="min-h-screen bg-[#0D1218] text-[#EDF2F7]" style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
       <Header />
       <Hero />
       <TrustBar />

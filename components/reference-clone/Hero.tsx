@@ -14,7 +14,7 @@ export function Hero() {
 
   return (
     <section ref={ref} className="relative bg-[#0D1218] pt-[110px] pb-6 px-5">
-      <div className="mx-auto max-w-[1536px] relative">
+      <div className="mx-auto max-w-[1240px] relative">
         <motion.h1
           style={{ y: titleY, opacity: titleOpacity }}
           className="relative z-0 text-center font-bold text-[#EDF2F7] whitespace-nowrap select-none overflow-hidden mb-[10%]"
@@ -49,7 +49,7 @@ export function Hero() {
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(256deg, rgba(44, 115, 132, 0.72) 10%, rgb(21, 74, 88) 88%)",
+              background: "linear-gradient(256deg, rgba(119, 192, 207, 0.92) 0%, rgba(44, 130, 150, 0.88) 35%, rgba(13, 18, 24, 0.96) 100%)",
             }}
           />
           {/* Animated ambient glow */}

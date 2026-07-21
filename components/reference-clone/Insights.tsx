@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
+import { AnimatedLabel } from "./AnimatedLabel";
 
 const audiences = [
   {
@@ -48,16 +49,8 @@ export function Insights() {
 
   return (
     <section id="insights" className="bg-[#0D1218] px-5 py-16 md:py-28 border-t border-white/5">
-      <div className="mx-auto max-w-[1536px]">
-        <motion.span
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="font-mono text-sm tracking-widest text-[#77C0CF]/70"
-        >
-          [ CON CHI LAVORO ]
-        </motion.span>
+      <div className="mx-auto max-w-[1240px]">
+        <AnimatedLabel>CON CHI LAVORO</AnimatedLabel>
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

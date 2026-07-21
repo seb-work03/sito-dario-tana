@@ -29,7 +29,7 @@ export function Footer() {
 
   return (
     <footer className="bg-[#17222F] px-5 pt-20 pb-8 overflow-hidden border-t border-white/5">
-      <div className="mx-auto max-w-[1536px]">
+      <div className="mx-auto max-w-[1240px]">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-14 mb-16">
           <div className="max-w-2xl">
             <motion.h2
@@ -47,11 +47,14 @@ export function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
               href="/contatti"
-              className="group inline-flex items-center gap-3 rounded-xl bg-[#77C0CF] text-[#0D1218] font-medium pl-5 pr-2 py-2 hover:bg-[#5BAAB9] transition-all duration-500 hover:pl-7 mb-10"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#77C0CF] text-[#0D1218] font-medium pl-6 pr-2 py-2 hover:bg-[#5BAAB9] transition-all duration-500 hover:pl-8 mb-10"
             >
               Parliamone
-              <span className="flex items-center justify-center rounded-lg bg-[#0D1218] text-[#77C0CF] w-11 h-11 overflow-hidden">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-rotate-45">
+              <span className="relative flex items-center justify-center rounded-full bg-[#0D1218] text-[#77C0CF] w-10 h-10 overflow-hidden shrink-0">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="absolute transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-8 group-hover:-translate-y-8">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="absolute transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -translate-x-8 translate-y-8 group-hover:translate-x-0 group-hover:translate-y-0">
                   <path d="M5 12h14M13 5l7 7-7 7" />
                 </svg>
               </span>

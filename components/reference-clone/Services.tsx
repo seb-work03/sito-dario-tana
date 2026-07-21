@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { AnimatedLabel } from "./AnimatedLabel";
 
 const services = [
   {
@@ -39,16 +40,8 @@ const services = [
 export function Services() {
   return (
     <section id="service" className="bg-[#0D1218] px-5 py-16 md:py-28 border-t border-white/5">
-      <div className="mx-auto max-w-[1536px]">
-        <motion.span
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="font-mono text-sm tracking-widest text-[#77C0CF]/70"
-        >
-          [ COSA FACCIO ]
-        </motion.span>
+      <div className="mx-auto max-w-[1240px]">
+        <AnimatedLabel>COSA FACCIO</AnimatedLabel>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mt-4 mb-14">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}

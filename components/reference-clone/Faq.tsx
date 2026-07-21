@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, ArrowRight } from "lucide-react";
+import { AnimatedLabel } from "./AnimatedLabel";
 
 const faqs = [
   {
@@ -36,17 +37,9 @@ export function Faq() {
 
   return (
     <section id="faq" className="bg-[#0D1218] px-5 py-16 md:py-28 border-t border-white/5">
-      <div className="mx-auto max-w-[1536px] grid md:grid-cols-[380px_1fr] gap-12 md:gap-24">
+      <div className="mx-auto max-w-[1240px] grid md:grid-cols-[380px_1fr] gap-12 md:gap-24">
         <div className="md:sticky md:top-[130px] self-start">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="font-mono text-sm tracking-widest text-[#77C0CF]/70"
-          >
-            [ FAQ ]
-          </motion.span>
+          <AnimatedLabel>FAQ</AnimatedLabel>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -72,11 +65,12 @@ export function Faq() {
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.2 }}
             href="/contatti"
-            className="group inline-flex items-center gap-3 rounded-xl bg-[#77C0CF] text-[#0D1218] font-medium pl-5 pr-2 py-2 text-sm hover:bg-[#5BAAB9] transition-all duration-500 hover:pl-7"
+            className="group inline-flex items-center gap-2 rounded-full bg-[#77C0CF] text-[#0D1218] font-medium pl-5 pr-1.5 py-1.5 text-sm hover:bg-[#5BAAB9] transition-all duration-500 hover:pl-7"
           >
             Parliamone
-            <span className="flex items-center justify-center rounded-lg bg-[#0D1218] text-[#77C0CF] w-9 h-9 overflow-hidden">
-              <ArrowRight size={14} className="transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:-rotate-45" />
+            <span className="relative flex items-center justify-center rounded-full bg-[#0D1218] text-[#77C0CF] w-8 h-8 overflow-hidden shrink-0">
+              <ArrowRight size={13} className="absolute transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-8 group-hover:-translate-y-8" />
+              <ArrowRight size={13} className="absolute transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -translate-x-8 translate-y-8 group-hover:translate-x-0 group-hover:translate-y-0" />
             </span>
           </motion.a>
         </div>

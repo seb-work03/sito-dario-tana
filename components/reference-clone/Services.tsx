@@ -100,9 +100,9 @@ export function Services() {
               >
                 <Link
                   href={s.href}
-                  className="group grid grid-cols-[auto_1fr_auto] gap-6 py-8 first:pt-0 items-start"
+                  className="group grid grid-cols-[auto_1fr_auto] gap-6 py-10 md:py-12 first:pt-0 items-center"
                 >
-                  <span className="font-mono text-sm text-[#77C0CF]/60 pt-2 tabular-nums transition-colors duration-300 group-hover:text-[#77C0CF]">
+                  <span className="font-mono text-sm text-[#77C0CF]/60 tabular-nums transition-colors duration-300 group-hover:text-[#77C0CF]">
                     {s.number}
                   </span>
                   <div>
@@ -112,14 +112,15 @@ export function Services() {
                     </h3>
                     <p className="text-[#94A9BE] leading-relaxed">{s.description}</p>
                   </div>
-                  <span className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center shrink-0 mt-1 overflow-hidden text-[#94A9BE] group-hover:border-[#77C0CF] group-hover:text-[#77C0CF] transition-colors duration-500">
+                  {/* Arrow container needs relative so the absolute twin is scoped here */}
+                  <span className="relative w-10 h-10 rounded-full border border-white/10 flex items-center justify-center shrink-0 overflow-hidden text-[#94A9BE] group-hover:border-[#77C0CF] group-hover:text-[#77C0CF] transition-colors duration-500">
                     <ArrowUpRight
                       size={16}
-                      className="transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-4 group-hover:-translate-y-4"
+                      className="absolute transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-5 group-hover:-translate-y-5"
                     />
                     <ArrowUpRight
                       size={16}
-                      className="absolute transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -translate-x-4 translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0"
+                      className="absolute transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] -translate-x-5 translate-y-5 group-hover:translate-x-0 group-hover:translate-y-0"
                     />
                   </span>
                 </Link>

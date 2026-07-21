@@ -47,7 +47,7 @@ const config: Config = {
         mono: ["var(--font-geist-mono)", "monospace"],
       },
       fontSize: {
-        // Adviest-scale display type — big, tight
+        // Editorial-scale display type — big, tight
         "hero": ["clamp(3rem, 8vw, 6.5rem)", { lineHeight: "0.95", letterSpacing: "-0.035em", fontWeight: "500" }],
         "display-xl": ["clamp(2.5rem, 6vw, 5rem)", { lineHeight: "1", letterSpacing: "-0.03em", fontWeight: "500" }],
         "display-lg": ["clamp(2rem, 4.5vw, 3.75rem)", { lineHeight: "1.05", letterSpacing: "-0.025em", fontWeight: "500" }],
@@ -75,7 +75,7 @@ const config: Config = {
       transitionTimingFunction: {
         "smooth": "cubic-bezier(0.25, 0.1, 0.25, 1)",
         "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",
-        "adviest": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "signature": "cubic-bezier(0.32, 0.72, 0, 1)",
       },
       animation: {
         "marquee": "marquee 40s linear infinite",

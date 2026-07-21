@@ -10,7 +10,7 @@ const steps = [
     number: "01",
     title: "Ascolto",
     description:
-      "Partiamo dal contesto: chi decide, quali dati ci sono, cosa si è già provato. La consulenza inizia con l&apos;ascolto, non con la soluzione.",
+      "Partiamo dal contesto: chi decide, quali dati ci sono, cosa si è già provato. La consulenza inizia con l'ascolto, non con la soluzione.",
   },
   {
     number: "02",
@@ -66,7 +66,7 @@ export function ApproachSection() {
           </div>
         </FadeIn>
 
-        {/* Offset stacked cards — Adviest signature */}
+        {/* Offset stacked cards */}
         <div className="relative">
           {/* Desktop: overlapping absolute layout */}
           <div className="hidden md:block relative min-h-[500px]">
@@ -101,10 +101,9 @@ export function ApproachSection() {
                     <h3 className="text-3xl font-medium text-paper-50 mb-3 tracking-tight">
                       {step.title}
                     </h3>
-                    <p
-                      className="text-paper-50/85 text-sm leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: step.description }}
-                    />
+                    <p className="text-paper-50/85 text-sm leading-relaxed">
+                      {step.description}
+                    </p>
                   </div>
                 </motion.div>
               );
@@ -126,10 +125,7 @@ export function ApproachSection() {
                   <span className="font-mono text-xs text-ink-900 font-medium">{step.number}</span>
                 </div>
                 <h3 className="text-2xl font-medium text-paper-50 mb-2 tracking-tight">{step.title}</h3>
-                <p
-                  className="text-paper-50/85 text-sm leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: step.description }}
-                />
+                <p className="text-paper-50/85 text-sm leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </div>

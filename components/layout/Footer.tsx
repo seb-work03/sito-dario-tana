@@ -7,21 +7,20 @@ import { motion } from "framer-motion";
 
 const footerLinks = {
   servizi: [
-    { label: "Consulenza", href: "/consulenza" },
-    { label: "Formazione", href: "/formazione" },
-    { label: "Docenza", href: "/docenza" },
-    { label: "Corsi & Workshop", href: "/corsi" },
+    { label: "Consulenza e-commerce", href: "/servizi#consulenza" },
+    { label: "Formazione aziendale", href: "/formazione#formazione-aziendale" },
+    { label: "Docenza", href: "/formazione#docenza" },
+    { label: "Corsi & Workshop", href: "/servizi#corsi" },
   ],
   navigazione: [
     { label: "Chi sono", href: "/chi-sono" },
-    { label: "Insights", href: "/insights" },
-    { label: "Testimonianze", href: "/testimonianze" },
+    { label: "Casi studio", href: "/casi-studio" },
+    { label: "Blog", href: "/blog" },
     { label: "Contatti", href: "/contatti" },
   ],
   social: [
     { label: "LinkedIn", href: "https://linkedin.com/in/dariotana" },
     { label: "Email", href: "mailto:info@dariotana.it" },
-    { label: "Google Reviews", href: "https://g.page/r/[LINK]" },
   ],
 };
 
@@ -165,7 +164,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Giant Dario text — Adviest-style */}
+          {/* Giant wordmark */}
           <div className="border-t border-ink-800 pt-12 mb-6 overflow-hidden">
             <motion.h3
               initial={{ opacity: 0, y: 40 }}

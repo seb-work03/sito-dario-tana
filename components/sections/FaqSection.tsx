@@ -11,15 +11,15 @@ import { Plus } from "lucide-react";
 const faqs = [
   {
     q: "Come si svolge una consulenza tipo?",
-    a: "Solitamente parte con un primo confronto gratuito per capire il contesto. Poi si definisce l&apos;attività — un audit, un affiancamento o una consulenza continuativa — con obiettivi chiari e tempi realistici. Ogni consulenza è personalizzata sul contesto.",
+    a: "Solitamente parte con un primo confronto gratuito per capire il contesto. Poi si definisce l'attività — un audit, un affiancamento o una consulenza continuativa — con obiettivi chiari e tempi realistici. Ogni consulenza è personalizzata sul contesto.",
   },
   {
     q: "Quanto costa una consulenza?",
-    a: "Il costo dipende dal tipo di intervento, dalla durata e dalla profondità dell&apos;analisi. Dopo il primo confronto invio una proposta scritta con perimetro, tempi e importo. Nessun preventivo &ldquo;standard&rdquo; senza aver capito il contesto.",
+    a: "Il costo dipende dal tipo di intervento, dalla durata e dalla profondità dell'analisi. Dopo il primo confronto invio una proposta scritta con perimetro, tempi e importo. Nessun preventivo “standard” senza aver capito il contesto.",
   },
   {
-    q: "Lavori solo in italiano o anche all&apos;estero?",
-    a: "L&apos;attività principale è in italiano, in Italia. Per progetti internazionali valuto caso per caso in funzione della complessità linguistica richiesta.",
+    q: "Lavori solo in italiano o anche all'estero?",
+    a: "L'attività principale è in italiano, in Italia. Per progetti internazionali valuto caso per caso in funzione della complessità linguistica richiesta.",
   },
   {
     q: "Qual è la differenza tra la consulenza e DT E-commerce Consulting?",
@@ -99,10 +99,9 @@ export function FaqSection() {
                           transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
                           className="overflow-hidden"
                         >
-                          <p
-                            className="pb-6 pr-12 text-paper-400 leading-relaxed"
-                            dangerouslySetInnerHTML={{ __html: faq.a }}
-                          />
+                          <p className="pb-6 pr-12 text-paper-400 leading-relaxed">
+                            {faq.a}
+                          </p>
                         </motion.div>
                       )}
                     </AnimatePresence>

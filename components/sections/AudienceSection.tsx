@@ -12,7 +12,7 @@ const audiences = [
   {
     id: "imprenditori",
     label: "Per imprenditori",
-    title: "Chi guida un&apos;azienda con un e-commerce",
+    title: "Chi guida un'azienda con un e-commerce",
     description:
       "Titolari e founder che devono decidere dove investire, quale direzione dare al progetto, come valutare fornitori e opportunità di crescita.",
     bullets: [
@@ -125,10 +125,9 @@ export function AudienceSection() {
                   />
                 </div>
                 <div className="p-6 md:p-8">
-                  <h3
-                    className="text-2xl md:text-3xl font-medium text-paper-50 mb-4 tracking-tight"
-                    dangerouslySetInnerHTML={{ __html: audiences[active].title }}
-                  />
+                  <h3 className="text-2xl md:text-3xl font-medium text-paper-50 mb-4 tracking-tight">
+                    {audiences[active].title}
+                  </h3>
                   <p className="text-paper-400 text-sm md:text-base leading-relaxed mb-5">
                     {audiences[active].description}
                   </p>

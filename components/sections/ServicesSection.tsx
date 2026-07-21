@@ -15,28 +15,28 @@ const services = [
     title: "Consulenza e-commerce",
     description:
       "Analisi indipendente del progetto, definizione delle priorità e supporto nelle decisioni strategiche più importanti.",
-    href: "/consulenza",
+    href: "/servizi#consulenza",
   },
   {
     number: "02",
     title: "Formazione aziendale",
     description:
-      "Percorsi disegnati sui bisogni reali del team, non corsi standard. Per rendere l&apos;azienda più autonoma.",
-    href: "/formazione",
+      "Percorsi disegnati sui bisogni reali del team, non corsi standard. Per rendere l'azienda più autonoma.",
+    href: "/formazione#formazione-aziendale",
   },
   {
     number: "03",
     title: "Docenza",
     description:
       "Interventi per università, master, business school ed enti di formazione professionale.",
-    href: "/docenza",
+    href: "/formazione#docenza",
   },
   {
     number: "04",
     title: "Corsi e workshop",
     description:
-      "Incontri operativi su temi specifici — dalla scelta piattaforma all&apos;analisi dei dati.",
-    href: "/corsi",
+      "Incontri operativi su temi specifici — dalla scelta piattaforma all'analisi dei dati.",
+    href: "/servizi#corsi",
   },
 ];
 
@@ -115,10 +115,9 @@ export function ServicesSection() {
                     >
                       {service.title}
                     </h3>
-                    <p
-                      className="text-paper-400 leading-relaxed text-sm md:text-base"
-                      dangerouslySetInnerHTML={{ __html: service.description }}
-                    />
+                    <p className="text-paper-400 leading-relaxed text-sm md:text-base">
+                      {service.description}
+                    </p>
                   </div>
 
                   {/* Underline animation */}

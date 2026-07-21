@@ -2,7 +2,7 @@
 
 import { Container } from "@/components/ui/Container";
 
-// Placeholder — sostituire con loghi reali di enti / aziende / università con cui Dario ha collaborato
+// Placeholder — da sostituire con i loghi reali di enti, aziende e università con cui Dario ha collaborato, gestibile da CMS
 const clients = [
   "[ENTE 1]",
   "[UNIVERSITÀ 2]",

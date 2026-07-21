@@ -9,9 +9,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Chi sono", href: "/chi-sono" },
-  { label: "Servizi", href: "/consulenza" },
-  { label: "Insights", href: "/insights" },
-  { label: "Testimonianze", href: "/testimonianze" },
+  { label: "Servizi", href: "/servizi" },
+  { label: "Formazione e docenza", href: "/formazione" },
+  { label: "Casi studio", href: "/casi-studio" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export function Header() {

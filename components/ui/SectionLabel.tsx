@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 
-// Adviest-style bracket label — [ABOUT US]
 export function SectionLabel({
   children,
   className,

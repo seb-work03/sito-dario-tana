@@ -60,7 +60,7 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
         : "bg-celeste-500 text-ink-900";
 
     const classes = cn(
-      "group inline-flex items-center justify-between rounded-full font-medium transition-all duration-300 ease-adviest select-none whitespace-nowrap",
+      "group inline-flex items-center justify-between rounded-full font-medium transition-all duration-300 ease-signature select-none whitespace-nowrap",
       variantClasses[variant],
       sizeClasses[size],
       showArrow ? "" : "pr-5",
@@ -73,7 +73,7 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
         {showArrow && (
           <span
             className={cn(
-              "flex items-center justify-center rounded-full shrink-0 transition-transform duration-300 ease-adviest",
+              "flex items-center justify-center rounded-full shrink-0 transition-transform duration-300 ease-signature",
               iconBg,
               iconSizeClasses[size],
               "group-hover:rotate-[-45deg]"

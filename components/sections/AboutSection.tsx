@@ -4,7 +4,6 @@ import { Container } from "@/components/ui/Container";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { MediaPlaceholder } from "@/components/ui/MediaPlaceholder";
 import { FadeIn } from "@/components/animations/FadeIn";
-import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function AboutSection() {
@@ -36,8 +35,7 @@ export function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950/95 via-ink-950/40 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <p className="text-paper-100 text-sm leading-relaxed italic">
-                  &ldquo;Il metodo di Dario ha portato chiarezza in un progetto
-                  fermo da mesi.&rdquo;
+                  [CITAZIONE DA SELEZIONARE — breve estratto di una testimonianza reale, gestibile da CMS]
                 </p>
               </div>
             </div>
@@ -72,10 +70,9 @@ export function AboutSection() {
                 </div>
               </div>
 
-              {/* Fake chart */}
+              {/* Decorative illustrative chart — not a claimed metric */}
               <div className="flex-1 flex flex-col justify-center py-8">
-                <div className="text-paper-400 text-xs font-mono mb-2">CONVERSIONE</div>
-                <div className="text-paper-50 text-2xl font-medium mb-4">+18,4%</div>
+                <div className="text-paper-400 text-xs font-mono mb-2">ANDAMENTO</div>
                 <svg viewBox="0 0 200 60" className="w-full h-16">
                   <motion.path
                     d="M0,45 L20,42 L40,38 L60,35 L80,30 L100,25 L120,22 L140,18 L160,15 L180,12 L200,10"
@@ -109,18 +106,6 @@ export function AboutSection() {
           </FadeIn>
         </div>
 
-        {/* 5.0 rating bar */}
-        <FadeIn delay={0.5}>
-          <div className="flex items-center gap-3 pt-2">
-            <div className="flex items-center gap-1.5">
-              <Star size={18} className="text-celeste-500 fill-celeste-500" />
-              <span className="text-paper-50 text-xl font-medium">4,9</span>
-            </div>
-            <span className="text-paper-400 text-sm">
-              Media su oltre 200 recensioni verificate
-            </span>
-          </div>
-        </FadeIn>
       </Container>
     </section>
   );

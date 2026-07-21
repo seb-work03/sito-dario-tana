@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="relative bg-[#F9F9F9] pt-[130px] pb-6 px-5">
+    <section className="relative bg-[#F9F9F9] pt-[110px] pb-6 px-5">
       <div className="mx-auto max-w-[1536px] relative">
         <h1
-          className="relative z-0 font-bold text-[#0D0D0D] whitespace-nowrap select-none overflow-hidden"
+          className="relative z-0 text-center font-bold text-[#0D0D0D] whitespace-nowrap select-none overflow-hidden"
           style={{
             fontSize: "clamp(2.75rem, 12.8vw, 12.25rem)",
             lineHeight: 1.2,

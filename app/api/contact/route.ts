@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Save to Payload CMS via internal API
-    const payloadRes = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/leads`, {
+    await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/leads`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

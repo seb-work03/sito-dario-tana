@@ -22,6 +22,7 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 const config = buildConfig({
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000",
   admin: {
     user: Users.slug,
     meta: {
@@ -44,7 +45,7 @@ const config = buildConfig({
     Redirects,
   ],
   editor: lexicalEditor({}),
-  secret: process.env.PAYLOAD_SECRET || "fallback-secret-change-this",
+  secret: process.env.PAYLOAD_SECRET || "fallback-secret-change-this-now!",
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },

@@ -50,20 +50,20 @@ function ProcessCard({ step, index, scrollProgress }: {
 }) {
   const off = stackOffsets[index];
 
-  /* x: from stackOffset → corner target */
+  /* Fan-out completes at 60% of scroll — cards stay put for remaining 40% */
   const x = useTransform(
     scrollProgress,
-    [0, 1],
+    [0, 0.6],
     [`${off.x}px`, step.corner.x]
   );
   const y = useTransform(
     scrollProgress,
-    [0, 1],
+    [0, 0.6],
     [`${off.y}px`, step.corner.y]
   );
-  const scale = useTransform(scrollProgress, [0, 1], [off.scale, 1]);
-  const opacity = useTransform(scrollProgress, [0, 0.25, 1], [off.opacity, 1, 1]);
-  const rotate = useTransform(scrollProgress, [0, 0.6], [off.rotate, 0]);
+  const scale = useTransform(scrollProgress, [0, 0.6], [off.scale, 1]);
+  const opacity = useTransform(scrollProgress, [0, 0.2, 0.6], [off.opacity, 1, 1]);
+  const rotate = useTransform(scrollProgress, [0, 0.45], [off.rotate, 0]);
 
   return (
     <motion.div
@@ -132,7 +132,7 @@ export function Process() {
       </div>
 
       {/* Scroll-driven fan-out — desktop only */}
-      <div className="hidden md:block" ref={sectionRef} style={{ minHeight: "280vh" }}>
+      <div className="hidden md:block" ref={sectionRef} style={{ minHeight: "380vh" }}>
         <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
           <div className="relative w-[clamp(480px,60vw,720px)] aspect-square">
             {steps.map((step, i) => (

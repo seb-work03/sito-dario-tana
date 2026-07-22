@@ -51,9 +51,13 @@ const config = buildConfig({
   },
   db: postgresAdapter({
     pool: {
-      // Prefer direct (non-pooled) connection for Drizzle schema push.
-      // Neon via Vercel creates DATABASE_URL_UNPOOLED for this purpose.
-      connectionString: process.env.DATABASE_URL_UNPOOLED || process.env.DATABASE_URL,
+      // Use direct (non-pooled) connection — PgBouncer blocks DDL needed by Drizzle push.
+      // Neon creates STORAGE_POSTGRES_URL_NON_POOLING when the integration uses STORAGE prefix.
+      connectionString:
+        process.env.DATABASE_URL_UNPOOLED ||
+        process.env.STORAGE_POSTGRES_URL_NON_POOLING ||
+        process.env.POSTGRES_URL_NON_POOLING ||
+        process.env.DATABASE_URL,
       ssl: { rejectUnauthorized: false },
     },
     push: true,

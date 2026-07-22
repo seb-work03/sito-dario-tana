@@ -51,10 +51,10 @@ const config = buildConfig({
   },
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URL,
-      ssl: process.env.DATABASE_URL?.includes("neon.tech") || process.env.NODE_ENV === "production"
-        ? { rejectUnauthorized: false }
-        : false,
+      // Prefer direct (non-pooled) connection for Drizzle schema push.
+      // Neon via Vercel creates DATABASE_URL_UNPOOLED for this purpose.
+      connectionString: process.env.DATABASE_URL_UNPOOLED || process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false },
     },
     push: true,
   }),

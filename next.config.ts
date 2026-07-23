@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
     "payload",
     "sharp",
   ],
+  outputFileTracingIncludes: {
+    "/init-db": ["./node_modules/drizzle-kit/**/*"],
+    "/admin/**": ["./node_modules/drizzle-kit/**/*"],
+    "/api/**": ["./node_modules/drizzle-kit/**/*"],
+  },
 };
 
 export default withPayload(nextConfig);

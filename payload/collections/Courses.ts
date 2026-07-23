@@ -7,7 +7,7 @@ export const Courses: CollectionConfig = {
   admin: {
     group: "Servizi",
     useAsTitle: "title",
-    defaultColumns: ["title", "type", "status", "date"],
+    defaultColumns: ["title", "type", "availability", "date"],
   },
   versions: { drafts: true },
   fields: [
@@ -54,9 +54,9 @@ export const Courses: CollectionConfig = {
     { name: "location", type: "text", label: "Luogo" },
     { name: "seats", type: "number", label: "Posti disponibili" },
     {
-      name: "status",
+      name: "availability",
       type: "select",
-      label: "Stato",
+      label: "Disponibilità",
       defaultValue: "evergreen",
       options: [
         { label: "Sempre disponibile", value: "evergreen" },

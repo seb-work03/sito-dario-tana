@@ -18,9 +18,21 @@ const nextConfig: NextConfig = {
     "sharp",
   ],
   outputFileTracingIncludes: {
-    "/init-db": ["./node_modules/drizzle-kit/**/*"],
-    "/admin/**": ["./node_modules/drizzle-kit/**/*"],
-    "/api/**": ["./node_modules/drizzle-kit/**/*"],
+    "/init-db": [
+      "./node_modules/drizzle-kit/**/*",
+      "./node_modules/drizzle-orm/**/*",
+      "./node_modules/@drizzle-team/**/*",
+    ],
+    "/admin/**": [
+      "./node_modules/drizzle-kit/**/*",
+      "./node_modules/drizzle-orm/**/*",
+      "./node_modules/@drizzle-team/**/*",
+    ],
+    "/api/**": [
+      "./node_modules/drizzle-kit/**/*",
+      "./node_modules/drizzle-orm/**/*",
+      "./node_modules/@drizzle-team/**/*",
+    ],
   },
 };
 

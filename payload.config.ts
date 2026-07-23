@@ -23,6 +23,14 @@ const dirname = path.dirname(filename);
 
 const config = buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000",
+  cors: "*",
+  csrf: [
+    "https://dariotana.it",
+    "https://www.dariotana.it",
+    "https://sito-dario-tana.vercel.app",
+    "https://sito-dario-tana-git-main-seb-work03s-projects.vercel.app",
+    "http://localhost:3000",
+  ],
   admin: {
     user: Users.slug,
     meta: {

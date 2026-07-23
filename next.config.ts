@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
       { protocol: "http", hostname: "localhost" },
     ],
   },
+  serverExternalPackages: ["drizzle-kit"],
 };
 
 export default withPayload(nextConfig);

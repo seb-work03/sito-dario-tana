@@ -8,7 +8,15 @@ const nextConfig: NextConfig = {
       { protocol: "http", hostname: "localhost" },
     ],
   },
-  serverExternalPackages: ["drizzle-kit"],
+  serverExternalPackages: [
+    "drizzle-kit",
+    "drizzle-orm",
+    "@payloadcms/drizzle",
+    "@payloadcms/db-vercel-postgres",
+    "@payloadcms/db-postgres",
+    "payload",
+    "sharp",
+  ],
 };
 
 export default withPayload(nextConfig);

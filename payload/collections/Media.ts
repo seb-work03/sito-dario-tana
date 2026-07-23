@@ -18,10 +18,5 @@ export const Media: CollectionConfig = {
     { name: "alt", type: "text", label: "Alt text", required: true },
     { name: "caption", type: "text", label: "Didascalia" },
     { name: "copyright", type: "text", label: "Copyright" },
-    {
-      name: "focalPoint",
-      type: "point",
-      label: "Punto focale",
-    },
   ],
 };

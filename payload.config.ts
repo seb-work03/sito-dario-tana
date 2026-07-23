@@ -1,5 +1,5 @@
 import { buildConfig } from "payload";
-import { postgresAdapter } from "@payloadcms/db-postgres";
+import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
 import path from "path";
@@ -49,18 +49,18 @@ const config = buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
-  db: postgresAdapter({
+  db: vercelPostgresAdapter({
     pool: {
-      // Use direct (non-pooled) connection — PgBouncer blocks DDL needed by Drizzle push.
-      // Neon creates STORAGE_POSTGRES_URL_NON_POOLING when the integration uses STORAGE prefix.
       connectionString:
-        process.env.DATABASE_URL_UNPOOLED ||
         process.env.STORAGE_POSTGRES_URL_NON_POOLING ||
+        process.env.DATABASE_URL_UNPOOLED ||
         process.env.POSTGRES_URL_NON_POOLING ||
+        process.env.STORAGE_POSTGRES_URL ||
         process.env.DATABASE_URL,
-      ssl: { rejectUnauthorized: false },
     },
-    push: true,
+    // In production the schema is already pushed at build time (scripts/db-init.ts),
+    // so we disable runtime push to keep cold starts fast (~1s vs 15-30s).
+    push: process.env.NODE_ENV !== "production",
   }),
   email: process.env.SMTP_HOST
     ? nodemailerAdapter({

@@ -58,9 +58,7 @@ const config = buildConfig({
         process.env.STORAGE_POSTGRES_URL ||
         process.env.DATABASE_URL,
     },
-    // In production the schema is already pushed at build time (scripts/db-init.ts),
-    // so we disable runtime push to keep cold starts fast (~1s vs 15-30s).
-    push: process.env.NODE_ENV !== "production",
+    push: true,
   }),
   email: process.env.SMTP_HOST
     ? nodemailerAdapter({

@@ -7,9 +7,8 @@ export const maxDuration = 60;
 
 /**
  * One-shot endpoint that forces Payload to push the schema to Neon.
- * Call this ONCE after deploy to create the tables, then Payload admin works.
- *
- * Protected by INIT_DB_TOKEN env var — pass ?token=... to invoke.
+ * Payload's default pushDevSchema uses prompts() which blocks in serverless.
+ * We bypass by calling drizzle-kit's pushSchema directly.
  */
 export async function GET(req: Request) {
   const url = new URL(req.url);
@@ -24,19 +23,39 @@ export async function GET(req: Request) {
   }
 
   const started = Date.now();
+  const log: string[] = [];
   try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const cfg = config as any;
-    if (cfg.db) cfg.db.push = true;
+    // Force Payload to skip its equality check and always try to push
+    process.env.PAYLOAD_FORCE_DRIZZLE_PUSH = "true";
 
+    log.push("Initializing Payload…");
     const payload = await getPayload({ config });
-
-    // Verify by running a raw count on users table
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const drizzle = (payload.db as any).drizzle;
+    const adapter = payload.db as any;
+    log.push(`Adapter loaded. Schema tables: ${Object.keys(adapter.schema || {}).length}`);
+
+    // Call drizzle-kit pushSchema directly, skipping the interactive prompts wrapper
+    log.push("Requiring drizzle-kit…");
+    const { pushSchema } = adapter.requireDrizzleKit();
+
+    log.push("Pushing schema to Neon…");
+    const { apply, hasDataLoss, warnings } = await pushSchema(
+      adapter.schema,
+      adapter.drizzle,
+      adapter.schemaName ? [adapter.schemaName] : undefined,
+      adapter.tablesFilter,
+      adapter.extensions?.postgis ? ["postgis"] : undefined,
+    );
+    log.push(`hasDataLoss=${hasDataLoss}, warnings=${warnings.length}`);
+
+    log.push("Applying schema changes…");
+    await apply();
+    log.push("Apply complete.");
+
+    // Verify by counting users
     let userCount = "unknown";
     try {
-      const result = await drizzle.execute("SELECT COUNT(*) as count FROM users");
+      const result = await adapter.drizzle.execute("SELECT COUNT(*) as count FROM users");
       userCount = JSON.stringify(result.rows ?? result);
     } catch (err) {
       userCount = `count failed: ${err instanceof Error ? err.message : String(err)}`;
@@ -45,16 +64,18 @@ export async function GET(req: Request) {
     return NextResponse.json({
       ok: true,
       elapsedMs: Date.now() - started,
+      log,
       userCount,
-      message: "Payload initialized. Try /admin/create-first-user now.",
+      message: "Schema pushed. Try /admin/create-first-user now.",
     });
   } catch (err) {
     return NextResponse.json(
       {
         ok: false,
         elapsedMs: Date.now() - started,
+        log,
         error: err instanceof Error ? err.message : String(err),
-        stack: err instanceof Error ? err.stack?.slice(0, 2000) : undefined,
+        stack: err instanceof Error ? err.stack?.slice(0, 3000) : undefined,
       },
       { status: 500 },
     );

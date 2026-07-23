@@ -1,22 +1,20 @@
-import { RootPage } from "@payloadcms/next/views";
-import { generatePageMetadata } from "@payloadcms/next/views";
+import type { Metadata } from "next";
+import config from "@payload-config";
+import { RootPage, generatePageMetadata } from "@payloadcms/next/views";
 import { importMap } from "../importMap";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const configPromise: any = import("@/payload.config").then((m) => m.default);
 
 type Args = {
   params: Promise<{ segments: string[] }>;
   searchParams: Promise<{ [key: string]: string | string[] }>;
 };
 
-export const generateMetadata = ({ params, searchParams }: Args) =>
-  generatePageMetadata({ config: configPromise, params, searchParams });
+export const generateMetadata = ({ params, searchParams }: Args): Promise<Metadata> =>
+  generatePageMetadata({ config, params, searchParams });
 
 const Page = ({ params, searchParams }: Args) =>
-  RootPage({ config: configPromise, importMap, params, searchParams });
+  RootPage({ config, importMap, params, searchParams });
 
 export default Page;

@@ -1,5 +1,5 @@
+import config from "@payload-config";
 import { REST_DELETE, REST_GET, REST_PATCH, REST_POST } from "@payloadcms/next/routes";
-import config from "@/payload.config";
 
 export const maxDuration = 60;
 
